@@ -6,6 +6,9 @@
   box-sizing: border-box;
 }
 
+/* color grey 8 vira grey 2 
+clor grey 7 vira 2*/
+
 :root {
   --color-brand-1:#9747ff;
   --color-grey-0: #15171a;
@@ -31,11 +34,22 @@
   --container: 45rem;
 }
 
+.dark-mode:root{
+  --color-grey-1: #f8f9fa;
+  --color-grey-8: #2b2f33;
+  --color-grey-9: #15171a;
+  --color-grey-7:#868e96;
+}
+
 body {
   font-family: "Inter", sans-serif;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   background-color: var(--color-grey-9);
+}
+
+ul{
+  list-style: none;
 }
 
 .container {
@@ -44,3 +58,4 @@ body {
   padding: 0 1rem;
   margin: 0 auto;
 }
+
