@@ -1,32 +1,35 @@
-/* Desenvolva sua lógica aqui ... */
-function darkModeToggle(){
 let html = document.querySelector("html")
-let buttonDK = document.getElementById("button-dk")
-let dkIcon = document.querySelector("#dmIcon")
+let buttonDarkMode = document.querySelector("#button-dk")
+let dkIcon = document.querySelector("#dkIcon")
+let darkMode;
+const theme = "dark-mode"
 
-buttonDK.addEventListener("click", ()=>{
+const iconTheme = ["assets/img/moon.svg", "assets/img/sun.svg"]
+buttonDarkMode.addEventListener("click", changeTheme)
+
+function changeTheme(){
+  darkMode = !darkMode
+
   html.classList.toggle("dark-mode")
-  dkIcon.classList.toggle('text-white')
-  
-  let dmPref = localStorage.getItem("darkmode")
 
-  if(!dmPref){
-    localStorage.setItem("darkmode", true)
-  }
+  localStorage.setItem(theme, darkMode)
 
-  else {
-    localStorage.removeItem("darkmode")
-  }
-
-   if(dkIcon.classList.contains('text-white')) {
-      dkIcon.src = 'assets/img/sun.svg'
-  } else {
-      dkIcon.src = 'assets/img/moon.svg'
-  }
-
-})
-
+  themeChangeIcon(dmIcon)
 }
 
-darkModeToggle()
+function themeChangeIcon(buttonElement){
+  darkMode? buttonElement.src = iconTheme[1]: buttonElement.src = iconTheme[0]
+}
 
+function themePreferenceAnalysis(){
+  darkMode = JSON.stringify(localStorage.getItem(theme))
+
+  if(darkMode){
+    html.classList.add(theme)
+    themeChangeIcon(dmIcon)
+  }else{
+    themeChangeIcon(dmIcon)
+  }
+}
+
+themePreferenceAnalysis()
