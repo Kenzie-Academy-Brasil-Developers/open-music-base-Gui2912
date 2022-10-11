@@ -5,6 +5,7 @@ let darkMode;
 const theme = "dark-mode"
 
 const iconTheme = ["assets/img/moon.svg", "assets/img/sun.svg"]
+
 buttonDarkMode.addEventListener("click", changeTheme)
 
 function changeTheme(){
@@ -15,6 +16,7 @@ function changeTheme(){
   localStorage.setItem(theme, darkMode)
 
   themeChangeIcon(dmIcon)
+  
 }
 
 function themeChangeIcon(buttonElement){
@@ -27,9 +29,10 @@ function themePreferenceAnalysis(){
   if(darkMode){
     html.classList.add(theme)
     themeChangeIcon(dmIcon)
-  }else{
-    themeChangeIcon(dmIcon)
-  }
+    }
+  // else{
+  //   themeChangeIcon(dmIcon)
+  // }
 }
 
 themePreferenceAnalysis()

@@ -1,7 +1,12 @@
+.div-header{
+  margin-top: 30px;
+}
+
 header button{
   height: 30px;
   width: 35px;
 }
+
 
 .genere-choose{
   gap: 10px;
